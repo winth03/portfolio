@@ -19,7 +19,6 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@pinia/nuxt',
         'nuxt-icon',
-        '@nuxt/image-edge',
     ],
     runtimeConfig: {
         githubToken: process.env.GITHUB_TOKEN,

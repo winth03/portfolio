@@ -2,11 +2,11 @@
     <div class="main">
         <div class="content">
             <h1 class="font-bold text-2xl text-center">Highlighted Works</h1>
-            <template v-for="[_, value] of Object.entries(slideContent)">
+            <template v-for="[key, value] of Object.entries(slideContent)">
                 <section class="text-center">
                     <div class="block sm:flex">
-                        <nuxt-img :src="`/images/${value.class}.png`" sizes="sm:100vw md:50vw lg:400px" :alt="`${value.class}.png`" />
-                        <nuxt-img :src="`/images/${value.class}1.png`" sizes="sm:100vw md:50vw lg:400px" :alt="`${value.class}1.png`" />
+                        <img :src="value.img[0]" width="400" alt="img.png" />
+                        <img :src="value.img[1]" width="400" alt="img1.png" />
                     </div>
                     <h3 class="font-bold my-4">{{ value.title }}</h3>
                     {{ value.desc }} <NuxtLink class="text-blue-500" target="_blank" :to="value.link">Play Here</NuxtLink>
@@ -17,24 +17,25 @@
 </template>
 
 <script setup>
+    import trashHero from '@/assets/images/trash-hero.png'
+    import trashHero1 from '@/assets/images/trash-hero1.png'
+    import foxHollow from '@/assets/images/fox-hollow.png'
+    import foxHollow1 from '@/assets/images/fox-hollow1.png'
+
     const slideIndex = ref(0)
     const slideContent = {
         0: {
             title: 'Trash Hero',
-            class: 'trash-hero',
+            img: [trashHero, trashHero1],
             desc: "A personal project made for school's computer subject. Made in Unity.",
             link: 'https://winth03.itch.io/trash-hero?password=AraiGoDai'
         },
         1: {
             title: 'Fox Hollow',
-            class: 'fox-hollow',
+            img: [foxHollow, foxHollow1],
             desc: "A project made for 'MyFirstGameJam2022'. Made in Unity.",
             link: 'https://reondale.itch.io/fox-hollow-demo'
         }
-    }
-
-    const switchSlide = () => {
-        slideIndex.value = (slideIndex.value + 1) % 2
     }
 </script>
 
