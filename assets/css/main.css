@@ -1,0 +1,20 @@
+.page-right-enter-from, .page-right-leave-to {
+    @apply translate-x-full opacity-0 absolute;
+}
+
+.page-left-enter-from, .page-left-leave-to {
+    @apply -translate-x-full opacity-0 absolute;
+}
+
+.page-fade-enter-from, .page-fade-leave-to {
+    @apply opacity-0;
+}
+
+.page-left-enter-active, 
+.page-left-leave-active, 
+.page-right-enter-active, 
+.page-right-leave-active,
+.page-fade-enter-active,
+.page-fade-leave-active {
+    @apply transition duration-1000 ease-in-out;
+}
