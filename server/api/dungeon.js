@@ -1,9 +1,10 @@
-import { spawn } from 'child_process'
+import { execFile } from 'child_process'
 
 function myPromise(timeout, callback) {
     return new Promise((resolve, reject) => {
         // Set up the timeout
         const timer = setTimeout(() => {
+            child?.kill()
             reject(new Error(`Promise timed out after ${timeout} ms`));
         }, timeout);
 
@@ -35,7 +36,7 @@ export default defineEventHandler(async (event) => {
 
     if (event.node.req.method === 'GET') {
         child?.kill()
-        child = spawn(useRuntimeConfig().nodeEnv === 'development' ? 'megadungeon.exe' : 'chmod a+x megadungeon.exe && ./megadungeon.exe', { cwd: './public', })
+        child = execFile(useRuntimeConfig().nodeEnv === 'development' ? 'megadungeon.exe' : 'chmod a+x ./megadungeon.exe && ./megadungeon.exe', { cwd: './public', })
         console.log("spawned", child.pid)
         child.stdout.setEncoding('utf-8')
         const data = await waitForOutput()        
