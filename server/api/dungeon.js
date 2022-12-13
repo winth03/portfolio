@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
         if (useRuntimeConfig().nodeEnv !== 'development') {
             exec('chmod a+x ./megadungeon.exe', { cwd: './public' })
             child = execFile('./megadungeon.exe', { cwd: './public', stdio: [
-                'ignore', 'pipe', 'pipe'
+                'ignore', 'pipe', 'ignore'
             ] })
         }
         else {
