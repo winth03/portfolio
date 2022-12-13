@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
 
     if (event.node.req.method === 'GET') {
         child?.kill()
-        child = spawn('megadungeon.exe', { cwd: './public', })
+        child = spawn(useRuntimeConfig().nodeEnv === 'development' ? 'megadungeon.exe' : 'chmod a+x megadungeon.exe && ./megadungeon.exe', { cwd: './public', })
         console.log("spawned", child.pid)
         child.stdout.setEncoding('utf-8')
         const data = await waitForOutput()        
