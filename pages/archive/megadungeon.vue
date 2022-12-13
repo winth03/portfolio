@@ -1,6 +1,6 @@
 <template>
     <div class="h-[60vh] main">
-        <NuxtLink class="btn m-4 bg-slate-500" target="_blank" to="https://onlinegdb.com/f4F-0AWH5">Source Code</NuxtLink>
+        <NuxtLink class="btn m-4 bg-slate-500" target="_blank" to="https://onlinegdb.com/GByibTCZ7">Source Code</NuxtLink>
         <ClientOnly>       
             <terminal :command-store="commands" :init-log="initLog" context="You" @execCmd="execute" @initComplete="initCmd">
                 <template #header><h1 class="text-center text-white bg-slate-500 rounded-t-lg">XxX-Mega Dungeon 2019-XxX</h1></template>
