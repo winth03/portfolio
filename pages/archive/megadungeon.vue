@@ -34,6 +34,8 @@
             const asker = new Terminal.$Ask()
             myAsker.value = asker
             const { data: { value: message } } = await useFetch('/api/dungeon', { method: 'GET', cache: false })
+
+            if (!message) failed({ content: 'An error occured', class: 'error' })
             success(asker)
 
             asker.ask({
