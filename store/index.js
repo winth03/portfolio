@@ -2,11 +2,19 @@ import { defineStore } from 'pinia'
 
 export const useStore = defineStore('main', {
     state: () => ({
-        dark: true,
+        response: '',
+        input: '',
+        exit: false,
     }),
     actions: {
-        switchTheme() {
-            this.dark = !this.dark
+        setResponse(value) {
+            this.response = value
         },
+        setInput(value) {
+            this.input = value
+        },
+        exit() {
+            this.exit = true
+        }
     }
 })

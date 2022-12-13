@@ -38,10 +38,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .main {
-        @apply w-screen p-4 flex flex-col items-center;
-    }
-
     .content {
         @apply max-w-5xl space-y-4;
     }

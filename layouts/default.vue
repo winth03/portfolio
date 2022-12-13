@@ -4,7 +4,7 @@
             <nav class="container flex flex-row items-center justify-center">            
                 <NuxtLink class="title" to="/">My Portfolio</NuxtLink>
                 <ul class="nav-buttons">
-                    <li><NuxtLink to="/">Homepage</NuxtLink></li>   
+                    <li><NuxtLink to="/"><Icon name="ic:baseline-home"/>Homepage</NuxtLink></li>   
                     <li><NuxtLink to="/tour">Tour</NuxtLink></li>
                     <li><NuxtLink to="/archive">Work Archive</NuxtLink></li>
                 </ul>

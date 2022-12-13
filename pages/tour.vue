@@ -17,22 +17,19 @@
 </template>
 
 <script setup>
-    import trashHero from '@/assets/images/trash-hero.png'
-    import trashHero1 from '@/assets/images/trash-hero1.png'
-    import foxHollow from '@/assets/images/fox-hollow.png'
-    import foxHollow1 from '@/assets/images/fox-hollow1.png'
+    import Images from '@/assets/images'
 
     const slideIndex = ref(0)
     const slideContent = {
         0: {
             title: 'Trash Hero',
-            img: [trashHero, trashHero1],
+            img: [Images.trashHero, Images.trashHero1],
             desc: "A personal project made for school's computer subject. Made in Unity.",
             link: 'https://winth03.itch.io/trash-hero?password=AraiGoDai'
         },
         1: {
             title: 'Fox Hollow',
-            img: [foxHollow, foxHollow1],
+            img: [Images.foxHollow, Images.foxHollow1],
             desc: "A project made for 'MyFirstGameJam2022'. Made in Unity.",
             link: 'https://reondale.itch.io/fox-hollow-demo'
         }
@@ -40,10 +37,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .main {
-        @apply w-screen p-4 flex flex-col items-center;
-    }
-
     .content {
         @apply max-w-5xl space-y-8;
     }

@@ -7,7 +7,7 @@
 }
 
 .page-fade-enter-from, .page-fade-leave-to {
-    @apply opacity-0;
+    @apply opacity-0 absolute;
 }
 
 .page-left-enter-active, 

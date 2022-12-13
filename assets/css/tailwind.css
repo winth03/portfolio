@@ -10,12 +10,16 @@
 
 @layer components {
     .btn {
-        @apply text-white font-bold py-2 px-4 border-black rounded cursor-pointer;
+        @apply text-white font-bold py-2 px-4 border-white rounded border-2 cursor-pointer;
     }
 
     .transition-fontsize {
         transition-property: font-size, line-height;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 150ms;
+    }
+
+    .main {
+        @apply w-screen p-4 flex flex-col items-center;
     }
 }
