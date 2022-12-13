@@ -1,4 +1,4 @@
-import { execFile } from 'child_process'
+import { exec, spawn } from 'child_process'
 
 function myPromise(timeout, callback) {
     return new Promise((resolve, reject) => {
@@ -36,7 +36,8 @@ export default defineEventHandler(async (event) => {
 
     if (event.node.req.method === 'GET') {
         child?.kill()
-        child = execFile(useRuntimeConfig().nodeEnv === 'development' ? 'megadungeon.exe' : './megadungeon.exe', { cwd: './public', })
+        if (useRuntimeConfig().nodeEnv !== 'development') exec('chmod a+x ./megadungeon.exe', { cwd: './public' })
+        child = spawn(useRuntimeConfig().nodeEnv === 'development' ? 'megadungeon.exe' : './megadungeon.exe', { cwd: './public', })
         console.log("spawned", child.pid)
         child.stdout.setEncoding('utf-8')
         const data = await waitForOutput()        
