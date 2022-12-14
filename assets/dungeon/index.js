@@ -1,4 +1,4 @@
-import megadungeonBIN from '@/public/megadungeon.out'
-import megadungeonEXE from '@/public/megadungeon.exe'
+import megadungeonBIN from './megadungeon.out'
+import megadungeonEXE from './megadungeon.exe'
 
 export default { megadungeonBIN, megadungeonEXE }
