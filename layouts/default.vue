@@ -28,7 +28,7 @@
     .nav-buttons {
         @apply flex flex-row space-x-4 justify-center;
         li {
-            @apply transition-fontsize;
+            @apply transition-fontsize ease-in-out;
         }
         li:hover:not(:has(.router-link-exact-active)) {
             @apply text-2xl;

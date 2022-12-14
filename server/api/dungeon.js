@@ -1,5 +1,4 @@
 import { spawn } from 'child_process'
-import { megadungeonEXE, megadungeonBIN } from '@/assets/dungeon'
 
 function myPromise(timeout, callback) {
     return new Promise((resolve, reject) => {
@@ -38,10 +37,11 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === 'GET') {
         child?.kill()
         if (useRuntimeConfig().nodeEnv !== 'development') {
-            child = spawn(megadungeonBIN)
+            // This shit doesn't work
+            // child = spawn(megadungeonBIN)
         }
         else {
-            child = spawn(megadungeonEXE)
+            child = spawn('./assets/dungeon/megadungeon.exe')
         }
         console.log("spawned", child.pid)
         child.stdout.setEncoding('utf-8')

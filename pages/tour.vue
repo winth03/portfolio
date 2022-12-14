@@ -4,10 +4,12 @@
             <div
                 v-for="(item, index) in items"
                 :key="index"
-                :class="`absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out min-w-max ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`"
+                :class="`absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out md:min-w-max ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`"
             >
-                <div class="w-full h-full object-contain flex justify-center space-x-4">
-                    <img v-for="(src, num) in item.src" :src="src" :alt="`image${num}`">
+                <div class="w-full h-full object-contain flex justify-center md:space-x-4">
+                    <img v-for="(src, num) in item.src" :src="src" :alt="`image${num}`"
+                        :class="`absolute max-w-md lg:max-w-none lg:static transition duration-1000 ease-in-out ${num === activeImg ? 'opacity-100' : 'opacity-0 lg:opacity-100'}`"
+                    >
                 </div>
             </div>            
         </div>
@@ -27,6 +29,7 @@
     import Images from '@/assets/images'
 
     const activeIndex = ref(0)
+    const activeImg = ref(0)
     const items = [
         {
             src: [Images.trashHero, Images.trashHero1],
@@ -42,9 +45,17 @@
         },
     ]
     const prev = () => {
+        activeImg.value = 0
         activeIndex.value = activeIndex.value === 0 ? items.length - 1 : activeIndex.value - 1
     }
     const next = () => {
+        activeImg.value = 0
         activeIndex.value = activeIndex.value === items.length - 1 ? 0 : activeIndex.value + 1
     }
+
+    onMounted(() => {
+        setInterval(() => {
+            activeImg.value = activeImg.value === items[activeIndex.value].src.length - 1 ? 0 : activeImg.value + 1
+        }, 5000)
+    })
 </script>
