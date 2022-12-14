@@ -35,7 +35,7 @@
             myAsker.value = asker
             const { data: { value: message } } = await useFetch('/api/dungeon', { method: 'GET', cache: false })
 
-            if (!message) failed('An error occured')
+            if (!message) return failed('An error occured')
             success(asker)
 
             asker.ask({
