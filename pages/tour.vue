@@ -1,17 +1,24 @@
 <template>
     <div class="main">
-        <div class="content">
-            <h1 class="font-bold text-2xl text-center">Highlighted Works</h1>
-            <template v-for="[key, value] of Object.entries(slideContent)">
-                <section class="text-center">
-                    <div class="block sm:flex">
-                        <img :src="value.img[0]" width="400" alt="img.png" />
-                        <img :src="value.img[1]" width="400" alt="img1.png" />
-                    </div>
-                    <h3 class="font-bold my-4">{{ value.title }}</h3>
-                    {{ value.desc }} <NuxtLink class="text-blue-500" target="_blank" :to="value.link">Play Here</NuxtLink>
-                </section>
-            </template>
+        <div class="relative w-full h-64">
+            <div
+                v-for="(item, index) in items"
+                :key="index"
+                :class="`absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out min-w-max ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`"
+            >
+                <div class="w-full h-full object-contain flex justify-center space-x-4">
+                    <img v-for="(src, num) in item.src" :src="src" :alt="`image${num}`">
+                </div>
+            </div>            
+        </div>
+        <div class="flex w-full max-w-5xl mt-8 justify-around">
+            <button class="btn" @click="prev">Prev</button>
+            <NuxtLink :to="items[activeIndex].link" class="btn bg-[#fa5c5c]" target="_blank">Play Here!</NuxtLink>
+            <button class="btn" @click="next">Next</button>
+        </div>    
+        <div class="mt-8 text-center">
+            <h1 class="text-4xl font-bold">{{ items[activeIndex].title }}</h1>
+            <p class="text-2xl">{{ items[activeIndex].description }}</p>
         </div>
     </div>
 </template>
@@ -19,25 +26,25 @@
 <script setup>
     import Images from '@/assets/images'
 
-    const slideIndex = ref(0)
-    const slideContent = {
-        0: {
+    const activeIndex = ref(0)
+    const items = [
+        {
+            src: [Images.trashHero, Images.trashHero1],
             title: 'Trash Hero',
-            img: [Images.trashHero, Images.trashHero1],
-            desc: "A personal project made for school's computer subject. Made in Unity.",
+            description: "A personal project made for school's computer subject. Made in Unity.",
             link: 'https://winth03.itch.io/trash-hero?password=AraiGoDai'
         },
-        1: {
+        {
+            src: [Images.foxHollow, Images.foxHollow1],
             title: 'Fox Hollow',
-            img: [Images.foxHollow, Images.foxHollow1],
-            desc: "A project made for 'MyFirstGameJam2022'. Made in Unity.",
+            description: "A project made for 'MyFirstGameJam2022'. Made in Unity.",
             link: 'https://reondale.itch.io/fox-hollow-demo'
-        }
+        },
+    ]
+    const prev = () => {
+        activeIndex.value = activeIndex.value === 0 ? items.length - 1 : activeIndex.value - 1
+    }
+    const next = () => {
+        activeIndex.value = activeIndex.value === items.length - 1 ? 0 : activeIndex.value + 1
     }
 </script>
-
-<style lang="scss" scoped>
-    .content {
-        @apply max-w-5xl space-y-8;
-    }
-</style>

@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
             //     if (err) console.log(stderr)
             //     console.log(stdout)
             // })
-            child = spawn('ls', { cwd: './public' })
+            child = spawn('./megadungeon.out', { cwd: './public' })
         }
         else {
             child = spawn('megadungeon.exe', { cwd: './public', })

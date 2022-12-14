@@ -1,12 +1,12 @@
 <template>
     <div id="container" class="flex flex-col min-h-screen">
-        <header class="flex flex-row w-full p-8">
+        <header class="flex flex-row w-full p-8 justify-center items-center">
             <nav class="container flex flex-row items-center justify-center">            
                 <NuxtLink class="title" to="/">My Portfolio</NuxtLink>
                 <ul class="nav-buttons">
                     <li><NuxtLink to="/"><Icon name="ic:baseline-home"/>Homepage</NuxtLink></li>   
-                    <li><NuxtLink to="/tour">Tour</NuxtLink></li>
-                    <li><NuxtLink to="/archive">Work Archive</NuxtLink></li>
+                    <li><NuxtLink to="/tour"><Icon name="ion:bowtie"/>Tour</NuxtLink></li>
+                    <li><NuxtLink to="/archive"><Icon name="majesticons:archive"/>Work Archive</NuxtLink></li>
                 </ul>
             </nav>
         </header>
