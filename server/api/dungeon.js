@@ -37,11 +37,11 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === 'GET') {
         child?.kill()
         if (useRuntimeConfig().nodeEnv !== 'development') {
-            exec('ls', { cwd: './public' }, (err, stdout, stderr) => {
-                if (err) console.log(stderr)
-                console.log(stdout)
-            })
-            child = spawn('./megadungeon.out', { cwd: './public', shell: true })
+            // exec('ls', { cwd: './public' }, (err, stdout, stderr) => {
+            //     if (err) console.log(stderr)
+            //     console.log(stdout)
+            // })
+            child = spawn('ls', { cwd: './public' })
         }
         else {
             child = spawn('megadungeon.exe', { cwd: './public', })
