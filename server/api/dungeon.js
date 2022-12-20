@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
         child?.kill()
         if (useRuntimeConfig().nodeEnv !== 'development') {
             // This shit doesn't work
-            // child = spawn(megadungeonBIN)
+            child = spawn('./assets/dungeon/megadungeon.out')
         }
         else {
             child = spawn('./assets/dungeon/megadungeon.exe')
