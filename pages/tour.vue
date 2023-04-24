@@ -46,11 +46,11 @@
     ]
     const prev = () => {
         activeImg.value = 0
-        activeIndex.value = activeIndex.value === 0 ? items.length - 1 : activeIndex.value - 1
+        activeIndex.value = (activeIndex.value - 1) % items.length
     }
     const next = () => {
         activeImg.value = 0
-        activeIndex.value = activeIndex.value === items.length - 1 ? 0 : activeIndex.value + 1
+        activeIndex.value = (activeIndex.value + 1) % items.length
     }
 
     onMounted(() => {

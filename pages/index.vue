@@ -30,7 +30,7 @@
 
 <script setup>
     const calculate_age = () => { 
-        var diff_ms = Date.now() - new Date(2004, 4, 9).getTime();
+        var diff_ms = Date.now() - new Date(2004, 3, 9).getTime();
         var age_dt = new Date(diff_ms); 
     
         return Math.abs(age_dt.getUTCFullYear() - 1970);

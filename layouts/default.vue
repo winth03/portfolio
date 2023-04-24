@@ -1,6 +1,6 @@
 <template>
     <div id="container" class="flex flex-col min-h-screen">
-        <header class="flex flex-row w-full p-8 justify-center items-center">
+        <header class="flex flex-row w-full p-8 justify-center items-center bg-gray-900 h-20" :class="scrollPosition > 20 ? 'fixed z-10' : ''">
             <nav class="container flex flex-row items-center justify-center">            
                 <NuxtLink class="title" to="/">My Portfolio</NuxtLink>
                 <ul class="nav-buttons">
@@ -10,6 +10,7 @@
                 </ul>
             </nav>
         </header>
+        <div v-if="scrollPosition > 20" class="h-20"></div>
         <main class="flex-grow relative overflow-hidden">            
             <slot />
         </main>
@@ -17,7 +18,21 @@
 </template>
 
 <script setup>
+    definePageMeta({
+        scrollToTop: false
+    })
+    
+    const scrollPosition = ref(0)
 
+    onMounted(() => {
+        window.addEventListener('scroll', () => {
+            scrollPosition.value = window.scrollY
+        })      
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('scroll')
+    })
 </script>
 
 <style lang="scss" scoped>

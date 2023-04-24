@@ -4,11 +4,11 @@ export default defineNuxtConfig({
         head: {
             title: 'My Portfolio',
             meta: [
-                { charset: 'utf-8' },                
+                { charset: 'utf-8' },
             ],
             htmlAttrs: {
                 lang: 'en',
-            }
+            },
         },
     },
     css: [
