@@ -9,7 +9,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'en',
             },
-        },
+        }
     },
     css: [
         '~/assets/css/main.css',
