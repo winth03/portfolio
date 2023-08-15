@@ -11,6 +11,13 @@ export default defineNuxtConfig({
             },
         }
     },
+    content: {
+        markdown: {
+            toc: {
+                searchDepth: 3,
+            },
+        },
+    },
     css: [
         '~/assets/css/main.css',
     ],
@@ -18,6 +25,7 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@pinia/nuxt',
         'nuxt-icon',
+        '@nuxt/content',
     ],
     runtimeConfig: {
         githubToken: process.env.GITHUB_TOKEN,

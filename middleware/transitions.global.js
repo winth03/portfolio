@@ -2,7 +2,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
     const pageIndex = {
         'index': 0,
         'tour': 1,
-        'archive': 2,
+        'blog': 2,
+        'archive': 3,
     }
 
     if (pageIndex[from.name] < pageIndex[to.name]) {

@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="content">
-            <h1 class="font-bold text-2xl text-center">About Me</h1>
+            <h1 class="title">About Me</h1>
             <section>
                 <h3 class="font-bold">Introduction</h3>
                 Hello everyone. My name is Nutpapop Yasawut.
@@ -13,10 +13,11 @@
             <section>
                 <h3 class="font-bold">My Skills</h3>
                 <ul>
-                    <li>Programming: C#, Python, HTML, CSS, JavaScript, Processing</li>
+                    <li>Programming: C#, C/C++, Python, HTML, CSS, JavaScript, Processing</li>
                     <li>Game Development: Unity</li>
                     <li>Web Development: Vue.js, Nuxt.js, Node.js</li>
                     <li>Database: MySQL, PostgreSQL</li>
+                    <li>IOT: Arduino, RaspberryPI</li>
                     <li>Version Control: Git</li>
                 </ul>
             </section>
@@ -38,7 +39,5 @@
 </script>
 
 <style lang="scss" scoped>
-    .content {
-        @apply max-w-5xl space-y-4;
-    }
+
 </style>

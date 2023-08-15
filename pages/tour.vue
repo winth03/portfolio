@@ -15,7 +15,7 @@
         </div>
         <div class="flex w-full max-w-5xl mt-8 justify-around">
             <button class="btn" @click="prev">Prev</button>
-            <NuxtLink :to="items[activeIndex].link" class="btn bg-[#fa5c5c]" target="_blank">Play Here!</NuxtLink>
+            <NuxtLink :to="items[activeIndex].link" class="btn bg-[#fa5c5c] !text-white" target="_blank">Play Here!</NuxtLink>
             <button class="btn" @click="next">Next</button>
         </div>    
         <div class="mt-8 text-center">
