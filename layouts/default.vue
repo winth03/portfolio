@@ -2,7 +2,7 @@
     <div id="container" class="flex flex-col min-h-screen">
         <header class="flex flex-row w-full p-8 justify-center items-center bg-gray-900 h-20" :class="scrollPosition > 20 ? 'fixed z-10' : ''">
             <nav class="container flex flex-row items-center justify-center">            
-                <NuxtLink class="title !text-white !no-underline" to="/">My Portfolio</NuxtLink>
+                <NuxtLink class="title !text-gray-200 !no-underline" to="/">My Portfolio</NuxtLink>
                 <ul class="nav-buttons">
                     <li><NuxtLink to="/"><Icon name="ic:baseline-home"/>Homepage</NuxtLink></li>   
                     <li><NuxtLink to="/tour"><Icon name="ion:bowtie"/>Tour</NuxtLink></li>

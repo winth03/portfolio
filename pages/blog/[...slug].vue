@@ -74,5 +74,9 @@ const scrollToTop = () => {
         :deep(blockquote) {
             @apply bg-zinc-900 rounded-lg p-2;
         }
+
+        :deep(pre:has(code)) {
+            @apply bg-zinc-900 rounded-lg p-2;
+        }
     }
 </style>

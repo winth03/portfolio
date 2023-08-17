@@ -17,6 +17,12 @@ export default defineNuxtConfig({
                 searchDepth: 3,
             },
         },
+        highlight: {
+            preload: [
+              'c',
+              'cpp',
+            ]
+        },
     },
     css: [
         '~/assets/css/main.css',
