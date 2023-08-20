@@ -35,3 +35,17 @@ void reverse_array( int *array, int num_elements ) {
     }
 }
 ```
+
+### Problem 3
+```c
+int count_zeros( const char *str ) {
+    int count = 0;
+    while (*str != '\0') {
+        if (*str == '0') {
+            count++;
+        }
+        str++;
+    }
+    return count;
+}
+```
