@@ -1,26 +1,24 @@
 <template>
-    <div class="main">
-        <div class="relative w-full h-64">
+    <div >
+        <div >
             <div
                 v-for="(item, index) in items"
                 :key="index"
-                :class="`absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out md:min-w-max ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`"
             >
-                <div class="w-full h-full object-contain flex justify-center md:space-x-4">
+                <div >
                     <img v-for="(src, num) in item.src" :src="src" :alt="`image${num}`"
-                        :class="`absolute max-w-md lg:max-w-none lg:static transition duration-1000 ease-in-out ${num === activeImg ? 'opacity-100' : 'opacity-0 lg:opacity-100'}`"
                     >
                 </div>
             </div>            
         </div>
-        <div class="flex w-full max-w-5xl mt-8 justify-around">
-            <button class="btn" @click="prev">Prev</button>
-            <NuxtLink :to="items[activeIndex].link" class="btn bg-[#fa5c5c] !text-gray-200" target="_blank">Play Here!</NuxtLink>
-            <button class="btn" @click="next">Next</button>
+        <div >
+            <button >Prev</button>
+            <NuxtLink :to="items[activeIndex].link" >Play Here!</NuxtLink>
+            <button >Next</button>
         </div>    
-        <div class="mt-8 text-center">
-            <h1 class="text-4xl font-bold">{{ items[activeIndex].title }}</h1>
-            <p class="text-2xl">{{ items[activeIndex].description }}</p>
+        <div >
+            <h1 >{{ items[activeIndex].title }}</h1>
+            <p >{{ items[activeIndex].description }}</p>
         </div>
     </div>
 </template>

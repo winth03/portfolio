@@ -1,7 +1,7 @@
 <template>
-    <div class="main">
-        <div class="content">            
-            <h1 class="title">My Past Works</h1>
+    <div >
+        <div >            
+            <h1 >My Past Works</h1>
             <ul>
                 <li><NuxtLink target="_blank" to="https://onlinegdb.com/gq69vrl5t">XxX-Mega Dungeon 2019-XxX</NuxtLink></li>
                 <!-- <li><NuxtLink to="/archive/megadungeon">XxX-Mega Dungeon 2019-XxX</NuxtLink> (terminal, doesn't work atm 😭)</li> -->

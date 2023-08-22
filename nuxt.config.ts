@@ -6,9 +6,6 @@ export default defineNuxtConfig({
             meta: [
                 { charset: 'utf-8' },
             ],
-            link: [
-                { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css' },
-            ],
             htmlAttrs: {
                 lang: 'en',
             },

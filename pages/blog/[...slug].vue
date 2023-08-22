@@ -1,7 +1,7 @@
 <template>
-    <div class="main lg:grid lg:grid-cols-4">
-        <div v-if="topics" class="side-bar hidden lg:block">
-            <h2 class="my-2 font-bold text-xl">Table of Contents</h2>
+    <div >
+        <div v-if="topics" >
+            <h2 >Table of Contents</h2>
             <ul>
                 <li v-for="topic in topics">
                     <NuxtLink :to="`/blog/${path}#${topic.id}`">{{ topic.text }}</NuxtLink>
@@ -13,12 +13,12 @@
                 </li>
             </ul>
         </div>
-        <div class="content">
-            <div class="w-full"><NuxtLink to="/blog"><Icon name="material-symbols:arrow-back" />Back</NuxtLink></div>
+        <div >
+            <div><NuxtLink to="/blog">Back</NuxtLink></div>
             <ContentDoc />
         </div>
     </div>
-    <div class="fixed right-2 bottom-2 text-4xl font-bold btn">
+    <div >
         <button @click.prevent="scrollToTop">To Top</button>
     </div>
 </template>
@@ -57,22 +57,6 @@ const scrollToTop = () => {
 
         :deep(*) {
             @apply my-1;
-        }
-
-        :deep(h1) {
-            @apply font-bold text-2xl text-left;
-        }
-
-        :deep(h2) {
-            @apply font-bold text-xl text-left;
-        }
-
-        :deep(h3) {
-            @apply font-bold text-base text-left;
-        }
-
-        :deep(blockquote) {
-            @apply bg-zinc-900 rounded-lg p-2;
         }
 
         :deep(pre:has(code)) {

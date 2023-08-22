@@ -1,9 +1,9 @@
 <template>
-    <div id="container" class="flex flex-col min-h-screen">
-        <header class="flex flex-row w-full p-8 justify-center items-center bg-gray-900 h-20" :class="scrollPosition > 20 ? 'fixed z-10' : ''">
-            <nav class="container flex flex-row items-center justify-center">            
-                <NuxtLink class="title !text-gray-200 !no-underline" to="/">My Portfolio</NuxtLink>
-                <ul class="nav-buttons">
+    <div id="container" >
+        <header >
+            <nav >            
+                <NuxtLink >My Portfolio</NuxtLink>
+                <ul >
                     <li><NuxtLink to="/"><Icon name="ic:baseline-home"/>Homepage</NuxtLink></li>   
                     <li><NuxtLink to="/tour"><Icon name="ion:bowtie"/>Tour</NuxtLink></li>
                     <li><NuxtLink to="/blog"><Icon name="mdi:document"/>Blog</NuxtLink></li>
@@ -11,20 +11,22 @@
                 </ul>
             </nav>
         </header>
-        <div v-if="scrollPosition > 20" class="h-20"></div>
-        <main class="flex-grow relative overflow-hidden">            
+        <div v-if="scrollPosition > 20" ></div>
+        <main >            
             <slot />
         </main>
     </div>
 </template>
 
 <script setup>
+    import { initFlowbite } from 'flowbite'
     const scrollPosition = ref(0)
 
     onMounted(() => {
         window.addEventListener('scroll', () => {
             scrollPosition.value = window.scrollY
-        })      
+        })
+        initFlowbite()
     })
 
     onUnmounted(() => {
@@ -33,20 +35,5 @@
 </script>
 
 <style lang="scss" scoped>
-    .title {
-        @apply text-2xl font-bold mx-4;
-    }
-
-    .nav-buttons {
-        @apply flex flex-row space-x-4 justify-center;
-        li {
-            @apply transition-fontsize ease-in-out duration-300;
-        }
-        li:hover:not(:has(.router-link-exact-active)) {
-            @apply text-2xl;
-        }
-        li:has(.router-link-exact-active) {
-            @apply text-gray-500;
-        }
-    }
+    
 </style>

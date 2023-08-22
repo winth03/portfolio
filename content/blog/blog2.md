@@ -49,3 +49,30 @@ int count_zeros( const char *str ) {
     return count;
 }
 ```
+
+### Problem 3
+```c
+int detect_pattern( const char *str ) {
+    int state = 0;
+    while (*str != '\0')
+    {
+        int token = (int)*str - 48;
+        switch (state)
+        {
+            case 0:
+                token ? state++ : '\0';
+                break;
+            case 1:
+                token ? state-- : state++;
+                break;
+            case 2:
+                token ? state++ : '\0';
+                break;
+            default:
+                break;
+        }
+        str++;
+    }
+    return state == 3 ? 1 : 0;
+}
+```
