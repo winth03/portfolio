@@ -276,4 +276,9 @@
 ## Additional Resources
 [An Introduction to C & GUI Programming by Simon Long, 2019.](https://magpi.raspberrypi.com/books/c-gui-programming)
 ### Review of the Book:
-> &nbsp;&nbsp;&nbsp;&nbsp;This book is a great introduction to C programming for beginners. It covers all the basics of C programming, including data types, variables, operators, functions, pointers, arrays, strings, structs, unions, enums, and more. It also covers the C Standard Library, including the C Standard I/O library, files and I/O streams, and the C Standard Math library. The book also covers some advanced topics such as multithreading, interprocess communication, memory management, and GUI-based application development with C/C++. The book is well-written and easy to follow. It is a great resource for anyone who wants to learn C programming.
+::rate
+---
+score: 3.5
+---
+::
+> &nbsp;&nbsp;&nbsp;&nbsp;This book is a great introduction to C programming for beginners. It covers all the basics of C programming, including data types, variables, operators, functions, pointers, arrays, strings, structs, unions, enums, and more. It also covers the C Standard Library, including the C Standard I/O library, files and I/O streams, and the C Standard Math library. The book also covers some advanced topics such as multithreading, interprocess communication, memory management, and GUI-based application development with C/C++. The book is well-written and easy to follow. Unfortunately, the book is severely outdated and is using many depecrated functions from the GTK 2 library. Overall, this book is a good introduction to C programming for beginners, but it is not recommended for advanced users.

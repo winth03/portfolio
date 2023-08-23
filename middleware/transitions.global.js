@@ -6,19 +6,18 @@ export default defineNuxtRouteMiddleware((to, from) => {
         'archive': 3,
     }
 
-    if (to.path !== from.path) {
-        if (process.client) window.scrollTo({top: 0, behavior: 'auto'});
+    if (to.fullPath !== from.fullPath) {
         if (pageIndex[from.name] < pageIndex[to.name]) {
-            from.meta.pageTransition = { name: 'page-left' }
-            to.meta.pageTransition = { name: 'page-right' }
+            from.meta.pageTransition = { name: 'page-left', mode: 'out-in' }
+            to.meta.pageTransition = { name: 'page-right', mode: 'out-in' }
         }
         else if (pageIndex[from.name] > pageIndex[to.name]) {
-            from.meta.pageTransition = { name: 'page-right' }
-            to.meta.pageTransition = { name: 'page-left'}
+            from.meta.pageTransition = { name: 'page-right', mode: 'out-in' }
+            to.meta.pageTransition = { name: 'page-left', mode: 'out-in' }
         }
         else {
-            from.meta.pageTransition = { name: 'page-fade'}
-            to.meta.pageTransition = { name: 'page-fade'}
+            from.meta.pageTransition = { name: 'page-fade', mode: 'out-in' }
+            to.meta.pageTransition = { name: 'page-fade', mode: 'out-in' }
         }
     }
 })

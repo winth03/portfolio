@@ -51,7 +51,7 @@
     .el-card {
         @apply max-w-max rounded-xl space-y-2;
         .el-avatar--large {
-            @apply w-24 h-24;
+            @apply w-16 h-16 sm:w-24 sm:h-24;
         }
 
         .el-button {

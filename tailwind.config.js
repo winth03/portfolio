@@ -19,5 +19,5 @@ module.exports = {
         'valera': ['Varela Round', 'sans-serif']
       }
     }
-  }
+  },
 }

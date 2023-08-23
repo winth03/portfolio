@@ -12,7 +12,8 @@ import { ElCollapse } from 'element-plus';
 .el-collapse {
     @apply bg-[#262727] divide-y-2 divide-gray-400 divide-opacity-10 rounded-lg;
 }
-.el-collapse > :deep(*) {
-    @apply p-2;
+
+.el-collapse > :deep(:not(.el-collapse-item)) {
+    @apply p-4 hover:bg-[#1d1d1d] cursor-pointer;
 }
 </style>

@@ -13,9 +13,15 @@ import { ElCollapseItem } from 'element-plus';
 
 <style lang="scss" scoped>
 :deep(.el-collapse-item__header) {
-    @apply whitespace-normal inline-flex align-middle items-center justify-between w-full;
+    @apply whitespace-normal inline-flex align-middle items-center justify-between w-full [&:not(.is-active)]:hover:bg-[#1d1d1d] cursor-pointer p-4;
     h2 {
         @apply max-w-max;
+    }
+    svg {
+        @apply transition-transform duration-150 rotate-0;
+    }
+    .el-collapse-item__arrow.is-active svg {
+        @apply rotate-90;
     }
 }
 
