@@ -31,7 +31,7 @@
                 </el-menu>
             </el-aside>
             <el-main>
-                <el-collaspe-transition><ContentDoc v-show="show"/></el-collaspe-transition>
+                <ContentDoc v-show="show"/>
             </el-main>
         </el-container>
     </el-container>

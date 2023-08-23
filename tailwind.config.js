@@ -9,7 +9,9 @@ module.exports = {
             transitionProperty: 'font-size, line-height',
             transitionDuration: '1.5s',
             transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
-        }
+        },
+        '.blockquote': {},
+        '.accordion-collapse-body': {}
       })
     }),
   ],
