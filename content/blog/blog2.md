@@ -50,7 +50,7 @@ int count_zeros( const char *str ) {
 }
 ```
 
-### Problem 3
+### Problem 4
 ```c
 int detect_pattern( const char *str ) {
     int state = 0;

@@ -1,33 +1,22 @@
 <template>
-    <div >
-        <div >
-            <div
-                v-for="(item, index) in items"
-                :key="index"
-            >
-                <div >
-                    <img v-for="(src, num) in item.src" :src="src" :alt="`image${num}`"
-                    >
-                </div>
-            </div>            
-        </div>
-        <div >
-            <button >Prev</button>
-            <NuxtLink :to="items[activeIndex].link" >Play Here!</NuxtLink>
-            <button >Next</button>
-        </div>    
-        <div >
-            <h1 >{{ items[activeIndex].title }}</h1>
-            <p >{{ items[activeIndex].description }}</p>
-        </div>
-    </div>
+    <el-tabs>
+        <el-tab-pane :label="item.title" class="mb-4" v-for="(item, index) in items" :key="index">
+            <el-carousel height="auto" indicator-position="outside" :interval="5000">
+                <el-carousel-item style="height: max-content;" v-for="(src, num) in item.src">
+                    <el-image fit="scale-down" :src="src" :alt="`image${num}`" />
+                </el-carousel-item>
+            </el-carousel>
+            <div class="flex space-x-2">
+                <h2>{{ item.title }}</h2>
+                <el-button type="primary" tag="a" target="_blank" :href="item.link" >Play Here!</el-button>
+            </div>
+            <span size="large">{{ item.description }}</span>
+        </el-tab-pane>
+    </el-tabs>
 </template>
 
 <script setup>
     import Images from '@/assets/images'
-
-    const activeIndex = ref(0)
-    const activeImg = ref(0)
     const items = [
         {
             src: [Images.trashHero, Images.trashHero1],
@@ -42,18 +31,4 @@
             link: 'https://reondale.itch.io/fox-hollow-demo'
         },
     ]
-    const prev = () => {
-        activeImg.value = 0
-        activeIndex.value = (activeIndex.value - 1) % items.length
-    }
-    const next = () => {
-        activeImg.value = 0
-        activeIndex.value = (activeIndex.value + 1) % items.length
-    }
-
-    onMounted(() => {
-        setInterval(() => {
-            activeImg.value = activeImg.value === items[activeIndex.value].src.length - 1 ? 0 : activeImg.value + 1
-        }, 5000)
-    })
 </script>
