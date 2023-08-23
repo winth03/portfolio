@@ -10,9 +10,14 @@ module.exports = {
             transitionDuration: '1.5s',
             transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
         },
-        '.blockquote': {},
-        '.accordion-collapse-body': {}
       })
     }),
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        'valera': ['Varela Round', 'sans-serif']
+      }
+    }
+  }
 }

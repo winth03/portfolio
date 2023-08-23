@@ -64,6 +64,6 @@
     }
 
     .el-main > :deep(*) {
-        @apply min-w-full md:max-w-[80%] md:min-w-[80%] lg:max-w-[65%] lg:min-w-[65%] mx-auto;
+        @apply min-w-full lg:max-w-[80%] lg:min-w-[80%] xl:max-w-[65%] xl:min-w-[65%] mx-auto;
     }
 </style>

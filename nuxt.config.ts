@@ -8,7 +8,13 @@ export default defineNuxtConfig({
             ],
             htmlAttrs: {
                 lang: 'en',
+                
             },
+            link: [
+                { rel:"preconnect", href:"https://fonts.googleapis.com" },
+                { rel:"preconnect", href:"https://fonts.gstatic.com", crossorigin:"" },
+                { href:"https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap", rel:"stylesheet"}
+            ]
         }
     },
     content: {

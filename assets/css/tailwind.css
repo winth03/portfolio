@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+
     body {
-        @apply min-h-screen font-serif text-[var(--el-text-color-regular)] m-0 overflow-x-hidden bg-black;
+        @apply min-h-screen text-[var(--el-text-color-regular)] m-0 overflow-x-hidden bg-black font-valera;
         background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#282828 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #282828 0.8px, #000000 0.8px) -0.4px 0;
         background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
     }
+
 
     a:not(.el-button) {
         @apply hover:underline;
@@ -34,18 +36,5 @@
     }
     h6 {
         @apply text-base font-bold;
-    }
-}
-
-@layer components {
-    .blockquote {
-        @apply p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800;
-    }
-    .blockquote p {
-        @apply text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white;
-    }
-
-    .accordion-collapse-body {
-        @apply p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900;
     }
 }

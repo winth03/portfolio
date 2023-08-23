@@ -13,10 +13,10 @@
         </el-page-header></el-header>
         <el-container>
             <el-aside width="min-content" v-if="topics" class="hidden md:block">
-                <h3>Table of Contents</h3>
+                <h4>Table of Contents</h4>
                 <el-menu background-color="#545c64">
                     <template v-for="topic in topics">
-                        <el-sub-menu v-if="topic.children">
+                        <el-sub-menu :index="topic.id" v-if="topic.children">
                             <template #title>
                                 <NuxtLink :to="`/blog/${path}#${topic.id}`">{{ topic.text }}</NuxtLink>
                             </template>
@@ -31,21 +31,20 @@
                 </el-menu>
             </el-aside>
             <el-main>
-                <ContentDoc v-show="show"/>
+                <ContentDoc />
             </el-main>
         </el-container>
     </el-container>
 </template>
 
 <script setup>
-const show = ref(true);
 const path = useRoute().params.slug[0];
-// const breakpoint = ref('all');
 const {data:doc} = await useAsyncData('topics', () => {
     return queryContent('blog', path).only(['body', 'title']).findOne();
 });
 const {value:{body:{toc:{links:topics}}}} = doc;
 
+// const breakpoint = ref('all');
 // onMounted(() => {
 //     const screens = {
 //         sm: 640,
@@ -83,15 +82,7 @@ const {value:{body:{toc:{links:topics}}}} = doc;
         @apply whitespace-normal leading-none;
     }
 
-    .el-main > :deep(ul) {
-        @apply accordion-collapse-body;
-    }
-
     :deep(pre:has(code)) {
         @apply bg-[#1f1f1f] p-4;
-    }
-
-    :deep(blockquote) {
-        @apply blockquote;
     }
 </style>
