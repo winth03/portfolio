@@ -1,7 +1,7 @@
 <template>
     <el-tabs>
         <el-tab-pane :label="item.title" class="mb-4" v-for="(item, index) in items" :key="index">
-            <el-carousel height="auto" indicator-position="outside" :interval="5000" :autoplay="false">
+            <el-carousel height="auto" indicator-position="outside" :interval="5000">
                 <el-carousel-item style="height: max-content;" v-for="(src, num) in item.src">
                     <el-image fit="scale-down" :src="src" :alt="`image${num}`" />
                 </el-carousel-item>
