@@ -38,6 +38,7 @@ export default defineNuxtConfig({
         'nuxt-icon',
         '@nuxt/content',
         '@element-plus/nuxt',
+        '@nuxtjs/device',
     ],
     runtimeConfig: {
         githubToken: process.env.GITHUB_TOKEN

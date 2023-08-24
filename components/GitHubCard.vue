@@ -12,7 +12,7 @@
             </el-col>
         </el-row>            
         <el-row justify="center">
-            <el-button type="info" tag="a" target="_blank" :href="data.html_url">
+            <el-button type="primary" tag="a" target="_blank" :href="data.html_url">
                 <el-avatar size="small" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
                 <el-text>View on GitHub</el-text>
             </el-button>

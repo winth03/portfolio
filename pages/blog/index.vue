@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-var blogs = await queryContent('/blog').find();
+const {children: blogs} = (await fetchContentNavigation())[0];
 </script>
 
 <style lang="scss" scoped>

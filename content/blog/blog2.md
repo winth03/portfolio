@@ -1,8 +1,8 @@
 # C Programming Quiz
 
-<object data="/pdf/quiz.pdf" type="application/pdf" width="700px" height="700px">
+<object data="/pdf/quiz.pdf" type="application/pdf" width="100%">
     <embed src="/pdf/quiz.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/quiz.pdf">Download PDF</a>.</p>
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://winth03.github.io/pdf/quiz.pdf" target="_blank">Download PDF</a>.</p>
     </embed>
 </object>
 

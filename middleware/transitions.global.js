@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         'archive': 3,
     }
 
-    if (to.fullPath !== from.fullPath) {
+    if (to.fullPath !== from.fullPath && to.hash == '') {
         if (pageIndex[from.name] < pageIndex[to.name]) {
             from.meta.pageTransition = { name: 'page-left', mode: 'out-in' }
             to.meta.pageTransition = { name: 'page-right', mode: 'out-in' }

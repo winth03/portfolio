@@ -55,14 +55,13 @@ const {value:{body:{toc:{links:topics}}}} = doc;
     }
 
     .el-main>:deep(div) {
-        @apply space-y-4;
+        @apply space-y-4 overflow-hidden;
+        object {
+            @apply aspect-square;
+        }
     }
 
     :deep(.el-rate__icon.is-active path), :deep(.el-rate__icon.el-rate__decimal path) {
         @apply fill-[#edff86];
-    }
-
-    :deep(pre:has(code)) {
-        @apply bg-[#1f1f1f] p-4;
     }
 </style>
