@@ -4,17 +4,14 @@
             <h1>About Me</h1>
         </el-header>
         <el-main>
-            <el-divider content-position="left">
-                <h3 >Introduction</h3>
-            </el-divider>
+            <h3>Introduction</h3>
             Hello everyone. My name is Nutpapop Yasawut.
             Currently, aged {{ calculate_age() }}, studying Computer Engineering at KMUTNB. <br>
             I have a hobby of programming softwares using
             C#, python and more.<br>
             I am currently studying about Embedded Systems and IOT.
-            <el-divider content-position="left">
-                <h3 >My Skills</h3>
-            </el-divider>
+            <el-divider />
+            <h3>My Skills</h3>
             <client-only>
                 <el-descriptions :column="1" border>
                     <el-descriptions-item class-name="desc-item" label="Programming" label-align="center">
@@ -59,9 +56,8 @@
                     </el-descriptions-item>
                 </el-descriptions>
             </client-only>
-            <el-divider content-position="left">
-                <h3 >Check me out on GitHub</h3>
-            </el-divider>
+            <el-divider />
+            <h3>Check me out on GitHub</h3>
             <GitHubCard username="winth03" />
         </el-main>
     </el-container>

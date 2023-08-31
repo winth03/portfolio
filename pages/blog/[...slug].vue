@@ -47,7 +47,7 @@ const {value:{body:{toc:{links:topics}}}} = doc;
 
 <style lang="scss" scoped>
     .el-menu-item {
-        @apply whitespace-normal leading-none;
+        @apply whitespace-normal leading-4 #{!important};
     }
 
     .el-menu {

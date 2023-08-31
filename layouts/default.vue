@@ -6,23 +6,25 @@
                     <NuxtLink class="text-4xl font-bold !text-white !no-underline" to="/">My Portfolio</NuxtLink>
                 </template>
                 <template #content v-if="breakpoint == 'lg' || breakpoint == 'xl'">
-                    <el-menu :router="true" mode="horizontal" :ellipsis="false">
-                        <el-menu-item index="/">
-                            <Icon name="ic:baseline-home"/>Homepage
-                        </el-menu-item>
-                        <el-menu-item index="/tour">
-                            <Icon name="ion:bowtie"/>Tour
-                        </el-menu-item>
-                        <el-sub-menu index="blog">
-                            <template #title><Icon name="mdi:document"/>Blog</template>
-                            <el-menu-item v-for="blog in blogs" :index="blog._path">{{ blog.title }}</el-menu-item>
-                        </el-sub-menu>
-                        <el-sub-menu index="archive">
-                            <template #title><Icon name="majesticons:archive"/>Work Archive</template>
-                            <el-menu-item @click="() => redirect('https://onlinegdb.com/gq69vrl5t')">XxX-Mega Dungeon 2019-XxX</el-menu-item>
-                            <el-menu-item @click="() => redirect('https://winth03.github.io/learningwithweaboos/')">Learning with Weaboos</el-menu-item>
-                        </el-sub-menu>
-                    </el-menu>
+                    <client-only>
+                        <el-menu :router="true" mode="horizontal" :ellipsis="false">
+                            <el-menu-item index="/">
+                                <Icon name="ic:baseline-home"/>Homepage
+                            </el-menu-item>
+                            <el-menu-item index="/tour">
+                                <Icon name="ion:bowtie"/>Tour
+                            </el-menu-item>
+                            <el-sub-menu index="blog">
+                                <template #title><Icon name="mdi:document"/>Blog</template>
+                                <el-menu-item v-for="blog in blogs" :index="blog._path">{{ blog.title }}</el-menu-item>
+                            </el-sub-menu>
+                            <el-sub-menu index="archive">
+                                <template #title><Icon name="majesticons:archive"/>Work Archive</template>
+                                <el-menu-item @click="() => redirect('https://onlinegdb.com/gq69vrl5t')">XxX-Mega Dungeon 2019-XxX</el-menu-item>
+                                <el-menu-item @click="() => redirect('https://winth03.github.io/learningwithweaboos/')">Learning with Weaboos</el-menu-item>
+                            </el-sub-menu>
+                        </el-menu>
+                    </client-only>
                 </template>
                 <template #extra v-else>
                     <el-button type="primary" @click="drawer = true">
