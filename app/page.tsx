@@ -1,26 +1,71 @@
-import { useEffect, useRef, useState } from "react";
+import { fetchPinnedRepos, fetchRecentRepos } from "@/app/lib/github";
 
-import { Navbar } from "../components/Navbar";
+import { ClientNavbar } from "@/components/ClientNavbar";
+import { GithubPinnedRepo } from "@/components/GithubPinnedRepo";
+import { GithubRepo } from "@/components/GithubRepo";
+
+// ISR: Revalidate every 24 hours
+export const revalidate = 86400;
+
+async function GitHubProjectsSection() {
+  const username = process.env.GITHUB_USERNAME || "winth03";
+  const token = process.env.GITHUB_TOKEN;
+
+  if (!token) {
+    return (
+      <div className="project-category">
+        <h3 className="project-category-title">Engineering</h3>
+        <p style={{ color: "#a0a0a0" }}>GitHub token not configured. Add GITHUB_TOKEN to .env.local</p>
+      </div>
+    );
+  }
+
+  try {
+    const [pinnedRepos, recentRepos] = await Promise.all([
+      fetchPinnedRepos(username, token),
+      fetchRecentRepos(username, token, 10),
+    ]);
+
+    return (
+      <>
+        {pinnedRepos.length > 0 && (
+          <div className="project-category">
+            <h3 className="project-category-title">Pinned Repositories</h3>
+            <div className="projects-list">
+              {pinnedRepos.map((repo) => (
+                <GithubPinnedRepo key={repo.id} repo={repo} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {recentRepos.length > 0 && (
+          <div className="project-category">
+            <h3 className="project-category-title">Recent Repositories</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {recentRepos.map((repo) => (
+                <GithubRepo key={repo.id} repo={repo} />
+              ))}
+            </div>
+          </div>
+        )}
+      </>
+    );
+  } catch (error) {
+    console.error("Error loading GitHub projects:", error);
+    return (
+      <div className="project-category">
+        <h3 className="project-category-title">Engineering</h3>
+        <p style={{ color: "#a0a0a0" }}>Unable to load GitHub projects. Please try again later.</p>
+      </div>
+    );
+  }
+}
 
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
-      },
-      { threshold: 0.3 }
-    );
-    document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
-      <Navbar activeSection={activeSection} />
+      <ClientNavbar />
 
       <main>
         {/* HERO */}
@@ -28,7 +73,7 @@ export default function Portfolio() {
           <p className="hero-intro">Hi - My name is</p>
           <h1 className="hero-title">Nutpapop Yasawut.</h1>
           <p className="hero-description">
-            I’ve always loved games, but I was just as interested in the systems running behind them.
+            I've always loved games, but I was just as interested in the systems running behind them.
             That led me to setting up homelabs, writing automation scripts, and participating in fast-paced <strong>Game Jams</strong>.
             Now, my work sits right in the middle of <strong>DevOps infrastructure</strong> and rapid <strong>game prototyping</strong>.
             Whether I'm fixing a deployment pipeline or testing a new mechanic, I just like building efficient systems that work.
@@ -80,42 +125,7 @@ export default function Portfolio() {
         <section id="projects">
           <h2>Selected Projects</h2>
 
-          <div className="project-category">
-            <h3 className="project-category-title">Engineering</h3>
-            <div className="projects-list">
-              <div>
-                <h3 className="project-title">
-                  <a href="https://www.npmjs.com/package/@winth03/n8n-nodes-minio" target="_blank" rel="noopener noreferrer">@winth03/n8n-nodes-minio ↗</a>
-                </h3>
-                <p className="project-description">
-                  Published npm package adding MinIO object-storage nodes to n8n, extending functionality for the community.
-                </p>
-                <div className="project-tags">
-                  <span>n8n</span> • <span>MinIO</span> • <span>TypeScript</span>
-                </div>
-              </div>
-              <div>
-                <h3 className="project-title">
-                  <a href="https://github.com/winth03/Smart-Camera-Project" target="_blank" rel="noopener noreferrer">Smart Camera Project ↗</a>
-                </h3>
-                <p className="project-description">
-                  ESP32-CAM module integrated with OpenCV for gesture detection sending commands to Node-RED for real-time smart device control.
-                </p>
-                <div className="project-tags">
-                  <span>ESP32</span> • <span>OpenCV</span> • <span>Node-RED</span>
-                </div>
-              </div>
-              <div>
-                <h3 className="project-title">Personal Homelab</h3>
-                <p className="project-description">
-                  Self-managed server stack running personal game servers, WireGuard VPN, Home Assistant, and containerized services.
-                </p>
-                <div className="project-tags">
-                  <span>Docker</span> • <span>Linux</span> • <span>Cloudflare</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <GitHubProjectsSection />
 
           <div className="project-category">
             <h3 className="project-category-title">Games</h3>
