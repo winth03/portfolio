@@ -1,6 +1,6 @@
 // Type definitions for GitHub API responses
 export interface GithubRepo {
-  id: number;
+  id: string; // Changed to string (using URL as unique key)
   name: string;
   description: string | null;
   url: string;
@@ -80,7 +80,7 @@ export async function fetchPinnedRepos(
             stargazers: { totalCount: number };
           };
         }) => ({
-          id: parseInt(edge.node.id),
+          id: edge.node.url, // Use URL as unique key instead of numeric ID
           name: edge.node.name,
           description: edge.node.description,
           url: edge.node.url,
@@ -130,7 +130,7 @@ export async function fetchRecentRepos(
         updated_at: string;
         stargazers_count: number;
       }) => ({
-        id: repo.id,
+        id: repo.html_url, // Use URL as unique key for consistency
         name: repo.name,
         description: repo.description,
         url: repo.html_url,

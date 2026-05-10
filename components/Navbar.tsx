@@ -14,26 +14,28 @@ export function Navbar({ activeSection }: NavbarProps) {
   ];
 
   return (
-    <nav>
-      <div className="nav-logo">
-        <img id="profile-img" src="https://avatars.githubusercontent.com/u/66255462" alt="logo" />
-      </div>
-      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        {navLinks.map((l) => (
-          <li key={l.id}>
-            <a
-              href={`#${l.id}`}
-              className={activeSection === l.id ? "active" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
-              {l.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <button className="nav-hamburger" onClick={() => setMenuOpen((o) => !o)}>
-        {menuOpen ? "✕" : "☰"}
-      </button>
-    </nav>
+    <div className="header">
+      <nav>
+        <div className="nav-logo">
+          <img id="profile-img" src="https://avatars.githubusercontent.com/u/66255462" alt="logo" />
+        </div>
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          {navLinks.map((l) => (
+            <li key={l.id}>
+              <a
+                href={`#${l.id}`}
+                className={activeSection === l.id ? "active" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button className="nav-hamburger" onClick={() => setMenuOpen((o) => !o)}>
+          {menuOpen ? "✕" : "☰"}
+        </button>
+      </nav>
+    </div>
   );
 }
